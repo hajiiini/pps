@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  string s;
+
+  cin >> s;
+  for(int i=0; i<s.length(); i++) {
+    char c = s[i];
+
+    if((int)c >= 65 && (int)c <= 67) {
+      c = (int)c + 23;
+    } else {
+      c=(int)c - 3;
+    }
+    
+    cout << c;
+  }
+  
+}
