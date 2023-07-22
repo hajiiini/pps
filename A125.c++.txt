@@ -1,0 +1,22 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+  int n;
+  int result=0;
+  int weight[100000];
+
+  cin >> n;
+  for(int i=0; i<n; i++) {
+    cin >> weight[i];
+  }
+
+  sort(weight, weight+n);
+  for(int i=0; i<n; i++) {
+    if(result<weight[i]*(n-i)) {
+      result = weight[i]*(n-i);
+    }
+  }
+  cout << result;
+}
