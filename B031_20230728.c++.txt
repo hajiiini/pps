@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a, b, n;
+
+  cin >> a >> b >> n;
+  int differ = abs(a-b);
+
+  while(n--) {
+    int t;
+    cin >> t;
+    differ = min(abs(t-b)+1, differ);
+  }
+  cout << differ;
+}
