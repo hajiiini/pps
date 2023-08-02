@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int twoCitySchedCost(vector<vector<int>>& costs) {
+        vector<int> differ;
+        int min=0;
+
+        for(int i=0; i<costs.size(); i++) {
+            min += costs[i][0];
+            differ.push_back(costs[i][1] - costs[i][0]);
+        }
+
+        sort(differ.begin(), differ.end());
+
+        for(int i=0; i<costs.size()/2; i++) {
+            min += differ[i];
+        }
+        return min;
+    }
+};

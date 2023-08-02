@@ -1,0 +1,45 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        string s1 = "qwertyuiop";
+        string s2 = "asdfghjkl";
+        string s3= "zxcvbnm";
+        map<char, int> m1, m2, m3;
+        vector<string> find;
+
+        for(auto x: s1) m1[x]++;
+        for(auto x: s2) m2[x]++;
+        for(auto x: s3) m3[x]++;
+
+        for(auto x: words) {
+            int c1=1, c2=1, c3=1;
+            string s=x;
+            transform(s.begin(), s.end(), s.begin(), ::tolower);
+            for(int j=0; j<s.length(); j++) {
+                if(m1.find(s[j])==m1.end()) {
+                    c1=0;
+                    break;
+                }
+            }
+
+            for(int j=0; j<s.length(); j++) {
+                if(m2.find(s[j])==m2.end()) {
+                    c2=0;
+                    break;
+                }
+            }
+
+            for(int j=0; j<s.length(); j++) {
+                if(m3.find(s[j])==m3.end()) {
+                    c3=0;
+                    break;
+                }
+            }
+
+            if(c1==1 || c2==1 || c3==1) {
+                find.push_back(x);
+            }
+        }
+        return find;
+    }
+};
